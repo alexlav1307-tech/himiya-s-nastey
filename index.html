@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Подготовка к ОГЭ и ЕГЭ по химии и биологии с Настей. Бесплатная диагностика уровня и персональная стратегия подготовки." />
+  <meta name="theme-color" content="#101713" />
+  <title>Химия с Настей — подготовка к ЕГЭ и ОГЭ онлайн</title>
+  <link rel="icon" href="./favicon.svg" />
+  <style>@import "tailwindcss";
+
+:root {
+  --ink: #111714;
+  --paper: #f4f1e9;
+  --paper-2: #ebe7dc;
+  --acid: #e7ff5d;
+  --coral: #ff7058;
+  --green: #153d31;
+  --line: rgba(17, 23, 20, 0.18);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-manrope), Arial, sans-serif; }
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+
+.topbar { height: 78px; padding: 0 clamp(22px, 5vw, 78px); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 30; background: rgba(244, 241, 233, .91); backdrop-filter: blur(14px); }
+.brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.03em; }
+.brand-mark { width: 35px; height: 35px; display: grid; place-items: center; background: var(--ink); color: var(--acid); font-size: 15px; transform: rotate(-6deg); }
+nav { display: flex; gap: 32px; font-size: 13px; font-weight: 700; }
+nav a, footer > a { transition: opacity .2s ease; }
+nav a:hover, footer > a:hover { opacity: .55; }
+.button { min-height: 54px; padding: 0 25px; display: inline-flex; align-items: center; justify-content: center; gap: 28px; border: 0; background: var(--ink); color: white; font-weight: 800; font-size: 14px; cursor: pointer; transition: transform .2s ease, background .2s ease; }
+.button:hover { transform: translateY(-2px); background: var(--green); }
+.button-small { min-height: 40px; padding: 0 19px; font-size: 12px; }
+
+.conversion-hero { min-height: calc(100vh - 78px); display: grid; grid-template-columns: 1.22fr .78fr; background: var(--ink); color: white; border-bottom: 1px solid rgba(255,255,255,.16); }
+.conversion-copy { position: relative; overflow: hidden; padding: clamp(64px, 7vw, 104px) 5vw 50px; display: flex; flex-direction: column; justify-content: center; }
+.conversion-copy::after { content: "80+"; position: absolute; right: -2vw; bottom: -3vw; color: rgba(231,255,93,.045); font-size: clamp(170px, 22vw, 390px); line-height: .8; font-weight: 900; letter-spacing: -.1em; pointer-events: none; }
+.eyebrow { margin: 0 0 24px; display: flex; align-items: center; gap: 9px; font-size: 11px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+.eyebrow span { width: 24px; height: 2px; background: var(--coral); }
+h1, h2, h3, p { margin-top: 0; }
+h1 { margin-bottom: 28px; max-width: 840px; font-size: clamp(48px, 6vw, 92px); line-height: .98; letter-spacing: -.068em; font-weight: 760; }
+h1 em { color: var(--green); font-style: normal; position: relative; white-space: nowrap; }
+h1 em::after { content: ""; position: absolute; height: 12px; left: 1%; right: -1%; bottom: -8px; background: var(--acid); z-index: -1; transform: rotate(-1deg); }
+.conversion-hero h1 { position: relative; z-index: 1; max-width: 880px; color: white; font-size: clamp(51px, 5.7vw, 88px); }
+.conversion-hero h1 em { color: var(--acid); }
+.conversion-hero h1 em::after { display: none; }
+.hero-lead { position: relative; z-index: 1; max-width: 680px; margin-bottom: 32px; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.65; color: rgba(255,255,255,.67); }
+.hero-guarantee-note { position: relative; z-index: 1; max-width: 560px; margin: 0 0 24px; padding: 15px 18px; display: flex; align-items: center; gap: 18px; background: var(--acid); color: var(--ink); }
+.hero-guarantee-note strong { font-size: 27px; letter-spacing: -.06em; }.hero-guarantee-note span { max-width: 330px; font-size: 11px; line-height: 1.4; font-weight: 800; }
+.conversion-benefits { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
+.conversion-benefits li { padding: 10px 13px; border: 1px solid rgba(255,255,255,.2); font-size: 10px; font-weight: 800; }
+.hero-personal-note { position: relative; z-index: 1; max-width: 560px; margin: 22px 0 0; padding-left: 18px; border-left: 2px solid var(--coral); color: rgba(255,255,255,.69); font-size: 11px; line-height: 1.55; }
+.hero-actions { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+.text-link { font-size: 13px; font-weight: 800; border-bottom: 1px solid var(--ink); padding-bottom: 5px; }
+.hero-proof { position: relative; z-index: 1; display: flex; gap: clamp(24px, 4vw, 62px); margin-top: clamp(40px, 5vw, 62px); padding-top: 25px; border-top: 1px solid rgba(255,255,255,.16); }
+.hero-proof div { display: grid; gap: 5px; }
+.hero-proof b { font-size: clamp(25px, 2.5vw, 37px); letter-spacing: -.055em; }
+.hero-proof span { max-width: 140px; font-size: 10px; line-height: 1.4; color: rgba(255,255,255,.5); }
+
+.hero-side { min-width: 0; display: grid; grid-template-rows: minmax(340px, 39vh) 1fr; background: var(--paper); color: var(--ink); }
+.hero-chemistry { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--green); }
+.hero-chemistry::before { content: ""; position: absolute; inset: 0; opacity: .15; background-image: linear-gradient(rgba(255,255,255,.25) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.25) 1px, transparent 1px); background-size: 42px 42px; }
+.hero-chemistry::after { content: ""; position: absolute; width: 38%; aspect-ratio: 1; left: -15%; bottom: -42%; border-radius: 50%; background: rgba(215,255,58,.08); }
+.hero-chemistry .score-card { width: min(43%, 185px); }
+.hero-chemistry .score-card strong { font-size: clamp(66px, 6.5vw, 94px); }
+.hero-chemistry .score-label { margin-bottom: 10px; font-size: 9px; }
+.hero-chemistry .score-note { width: 125px; margin-top: 9px; font-size: 9px; }
+.hero-chemistry .orbit-one { width: 58%; }
+.hero-chemistry .orbit-two { width: 78%; }
+.hero-chemistry .orbit i { width: 36px; height: 36px; font-size: 10px; }
+.hero-chemistry .formula-a { left: 5%; top: 10%; }
+.hero-chemistry .formula-b { right: 6%; bottom: 7%; }
+.hero-chemistry .sticker { right: 6%; top: 8%; width: 76px; height: 76px; font-size: 9px; line-height: 1.15; }
+.hero-form { display: flex; flex-direction: column; justify-content: center; padding: clamp(20px, 2.6vw, 36px) clamp(25px, 3.2vw, 46px) 22px; background: var(--paper); color: var(--ink); }
+.form-kicker { margin-bottom: 12px; color: var(--coral); font-size: 10px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+.hero-form > h2 { max-width: 620px; margin-bottom: 7px; font-size: clamp(25px, 2.3vw, 34px); line-height: 1.08; letter-spacing: -.05em; }
+.form-intro { max-width: 520px; margin-bottom: 12px; color: #696e69; font-size: 10px; line-height: 1.45; }
+.hero-form .contact-form { padding: 0; background: transparent; }
+.hero-form .contact-form label { gap: 5px; margin-bottom: 8px; }.hero-form .contact-form input, .hero-form .contact-form select { height: 42px; }.hero-form .button-form { min-height: 46px; margin-top: 5px; }.hero-form .contact-form small { margin-top: 8px; }.hero-form .contact-links { margin-top: 10px; padding-top: 9px; }
+
+.hero-visual { position: relative; overflow: hidden; min-height: 660px; background: var(--green); border-left: 1px solid var(--line); }
+.hero-visual::before { content: ""; position: absolute; inset: 0; opacity: .19; background-image: linear-gradient(rgba(255,255,255,.25) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.25) 1px, transparent 1px); background-size: 55px 55px; }
+.score-card { position: absolute; inset: 50% auto auto 50%; width: min(62%, 360px); aspect-ratio: 1; border-radius: 50%; transform: translate(-50%, -50%); background: var(--acid); display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 28px 70px rgba(0,0,0,.23); z-index: 2; }
+.score-card strong { font-size: clamp(85px, 10vw, 150px); line-height: .86; letter-spacing: -.09em; }
+.score-card strong span { font-size: .35em; vertical-align: top; margin-left: 3px; }
+.score-label { font-size: 11px; letter-spacing: .18em; font-weight: 900; margin-bottom: 19px; }
+.score-note { width: 160px; margin-top: 16px; text-align: center; font-size: 11px; line-height: 1.45; font-weight: 700; }
+.orbit { position: absolute; inset: 50% auto auto 50%; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; transform: translate(-50%,-50%) rotate(-20deg); }
+.orbit-one { width: 76%; aspect-ratio: 1; }
+.orbit-two { width: 93%; aspect-ratio: 1; transform: translate(-50%,-50%) rotate(31deg); }
+.orbit i { position: absolute; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: var(--paper); color: var(--ink); font-style: normal; font-size: 12px; font-weight: 900; }
+.orbit-one i:nth-child(1) { top: 4%; left: 23%; }.orbit-one i:nth-child(2) { right: -2%; top: 54%; }.orbit-one i:nth-child(3) { bottom: 3%; left: 23%; }
+.orbit-two i:nth-child(1) { top: 9%; left: 18%; }.orbit-two i:nth-child(2) { right: 2%; bottom: 20%; background: var(--coral); color: white; }
+.formula { position: absolute; color: rgba(255,255,255,.55); font-size: 12px; font-weight: 700; letter-spacing: .12em; }
+.formula-a { left: 7%; top: 13%; transform: rotate(-7deg); }.formula-b { right: 8%; bottom: 9%; transform: rotate(6deg); }
+.sticker { position: absolute; right: 7%; top: 12%; width: 104px; height: 104px; display: grid; place-items: center; text-align: center; border-radius: 50%; background: var(--coral); color: white; font-size: 12px; font-weight: 900; transform: rotate(9deg); z-index: 3; }
+
+.truth-strip { padding: 24px 5vw; display: flex; justify-content: space-between; gap: 30px; background: var(--acid); font-size: 13px; font-weight: 800; }
+.truth-strip p { margin: 0; }.truth-strip span { text-decoration: underline; text-decoration-thickness: 2px; }
+.section { padding: clamp(78px, 10vw, 140px) 5vw; }
+.section-heading h2, .diagnostic h2, .guarantee h2, .promo h2 { margin-bottom: 0; font-size: clamp(37px, 4.5vw, 66px); line-height: 1.05; letter-spacing: -.06em; }
+.section-heading-row { display: flex; justify-content: space-between; gap: 50px; align-items: end; }
+.section-heading-row > p { max-width: 450px; margin: 0 0 4px; font-size: 15px; line-height: 1.7; color: #636864; }
+.steps { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 72px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.steps article { position: relative; padding: 42px 36px 45px 0; }
+.steps article + article { border-left: 1px solid var(--line); padding-left: 36px; }
+.step-number { position: absolute; right: 20px; top: 24px; color: #92958e; font-size: 11px; font-weight: 900; }
+.step-icon { width: 58px; height: 58px; display: grid; place-items: center; background: var(--ink); color: var(--acid); font-size: 24px; margin-bottom: 31px; }
+.steps h3 { margin-bottom: 13px; font-size: 21px; letter-spacing: -.03em; }
+.steps p { margin: 0; max-width: 330px; font-size: 14px; line-height: 1.7; color: #626763; }
+
+.fit { display: grid; grid-template-columns: 1fr 1fr; padding-top: 0; }
+.fit-card { position: relative; min-height: 460px; padding: clamp(40px, 5vw, 70px); }
+.fit-yes { background: var(--ink); color: white; }.fit-no { background: var(--paper-2); }
+.fit-symbol { position: absolute; right: 38px; top: 28px; font-size: 56px; font-weight: 200; }
+.fit-card h2 { max-width: 420px; font-size: clamp(32px, 3vw, 48px); line-height: 1.08; letter-spacing: -.05em; }
+.fit-card ul { list-style: none; padding: 0; margin: 40px 0 0; }
+.fit-card li { padding: 17px 0 17px 32px; border-bottom: 1px solid rgba(255,255,255,.17); position: relative; font-size: 14px; }
+.fit-card li::before { content: "↗"; position: absolute; left: 0; color: var(--acid); }
+.fit-no li { border-color: var(--line); }.fit-no li::before { content: "×"; color: var(--coral); }
+.fit-no > p { max-width: 430px; margin: 29px 0 0; font-size: 12px; line-height: 1.6; color: #6f746f; }
+
+.teacher { display: grid; grid-template-columns: .88fr 1.12fr; gap: clamp(50px, 8vw, 120px); align-items: center; background: #faf8f2; }
+.teacher-photo-wrap { position: relative; max-width: 560px; }
+.teacher-photo-wrap::before { content: ""; position: absolute; width: 88%; height: 88%; left: -18px; bottom: -18px; background: var(--acid); }
+.teacher-photo { position: relative; width: 100%; height: min(700px, 64vw); display: block; object-fit: cover; object-position: 50% 25%; filter: saturate(.88) contrast(1.02); }
+.teacher-photo-tag { position: absolute; right: -23px; bottom: 35px; padding: 15px 20px; background: var(--coral); color: white; font-size: 11px; font-weight: 900; transform: rotate(-2deg); }
+.teacher-about h2 { max-width: 800px; margin-bottom: 30px; font-size: clamp(39px, 4.7vw, 68px); line-height: 1.04; letter-spacing: -.06em; }
+.teacher-about h2 em { font-style: normal; color: var(--green); }
+.teacher-intro { max-width: 650px; color: #5d635f; line-height: 1.75; }
+.teacher-about blockquote { max-width: 650px; margin: 36px 0; padding: 23px 0 23px 25px; border-left: 3px solid var(--coral); font-size: 16px; font-weight: 700; line-height: 1.6; }
+.teacher-facts { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--line); }
+.teacher-facts div { display: grid; gap: 5px; padding: 20px 12px 0 0; }.teacher-facts strong { font-size: 18px; }.teacher-facts span { font-size: 10px; color: #747973; }
+
+.programs { background: #faf8f2; }
+.program-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 68px; }
+.program-card { padding: clamp(35px, 4.2vw, 58px); border: 1px solid var(--line); background: var(--paper); }
+.program-card.yellow { border-top: 9px solid var(--acid); }.program-card.red { border-top: 9px solid var(--coral); }
+.program-top { display: flex; justify-content: space-between; align-items: center; }
+.program-badge { padding: 8px 12px; background: var(--ink); color: white; font-size: 10px; font-weight: 900; letter-spacing: .14em; }
+.program-result { font-size: 12px; font-weight: 900; }
+.program-card h3 { margin: 45px 0 7px; font-size: clamp(32px, 3vw, 46px); letter-spacing: -.05em; }
+.program-note { color: #70746f; font-size: 12px; }
+.program-card ul { list-style: none; padding: 0; margin: 37px 0; }
+.program-card li { position: relative; padding: 10px 0 10px 27px; font-size: 13px; }
+.program-card li::before { content: "✓"; position: absolute; left: 0; font-weight: 900; }
+.price-list { border-top: 1px solid var(--line); }
+.price-list div { padding: 15px 0; display: flex; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--line); font-size: 13px; }
+.price-list b { font-size: 15px; white-space: nowrap; }
+.program-card > a { margin-top: 31px; display: flex; justify-content: space-between; font-size: 13px; font-weight: 900; }
+
+.promo { margin: 0 5vw; padding-left: clamp(35px, 5vw, 70px); padding-right: clamp(35px, 5vw, 70px); display: grid; grid-template-columns: 1.2fr .9fr .9fr; gap: 50px; background: var(--green); color: white; }
+.eyebrow.light span { background: var(--acid); }.promo h2 { font-size: clamp(38px, 4vw, 59px); }
+.promo-main > p:last-child { max-width: 430px; margin: 27px 0 0; color: rgba(255,255,255,.65); font-size: 13px; line-height: 1.7; }
+.promo-times { display: grid; grid-template-columns: repeat(2,1fr); align-content: center; gap: 9px; }
+.promo-times span { padding: 15px; border: 1px solid rgba(255,255,255,.2); text-align: center; font-size: 12px; font-weight: 800; }
+.promo-prices { display: grid; grid-template-columns: 1fr; gap: 12px; align-content: center; }
+.promo-prices div { display: grid; grid-template-columns: auto 1fr; align-items: end; padding: 20px; background: var(--acid); color: var(--ink); }
+.promo-prices span { font-size: 11px; font-weight: 900; }.promo-prices strong { justify-self: end; font-size: 31px; letter-spacing: -.06em; }.promo-prices small { grid-column: 2; justify-self: end; font-size: 9px; }
+.promo-detail { grid-column: 1 / -1; margin: -20px 0 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.17); font-size: 11px; color: rgba(255,255,255,.62); }
+
+.guarantee { display: grid; grid-template-columns: .72fr 1.28fr; gap: 7vw; align-items: center; }
+.guarantee-top { background: #faf8f2; border-bottom: 1px solid var(--line); }
+.guarantee-number { font-size: clamp(100px, 16vw, 245px); line-height: .8; letter-spacing: -.1em; font-weight: 850; color: var(--coral); }
+.guarantee h2 { font-size: clamp(33px, 4vw, 57px); }
+.guarantee > div:last-child > p:not(.eyebrow) { margin: 29px 0 0; max-width: 650px; line-height: 1.7; color: #636864; }
+.guarantee-link { display: inline-flex; align-items: center; gap: 28px; margin-top: 31px; padding-bottom: 5px; border-bottom: 1px solid var(--ink); font-size: 12px; font-weight: 900; }
+
+.exam-example { background: var(--paper-2); }
+.topic-flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; gap: 15px; align-items: center; margin-top: 65px; }
+.topic-flow span { min-height: 100px; display: grid; place-items: center; padding: 20px; text-align: center; border: 1px solid var(--line); background: var(--paper); font-size: 13px; font-weight: 800; }.topic-flow i { font-style: normal; color: var(--coral); font-size: 23px; }
+
+.diagnostic { display: grid; grid-template-columns: 1fr .82fr; gap: 8vw; background: var(--ink); color: white; }
+.diagnostic h2 { max-width: 710px; }
+.diagnostic-copy > p:nth-of-type(2) { max-width: 620px; margin: 30px 0 40px; color: rgba(255,255,255,.65); line-height: 1.7; }
+.teacher-sign { display: flex; align-items: center; gap: 14px; }
+.avatar { width: 49px; height: 49px; display: grid; place-items: center; border-radius: 50%; background: var(--acid); color: var(--ink); font-weight: 900; }
+.teacher-sign div { display: grid; gap: 3px; }.teacher-sign b { font-size: 13px; }.teacher-sign div span { color: rgba(255,255,255,.5); font-size: 11px; }
+.contact-form { padding: clamp(30px, 4vw, 48px); background: white; color: var(--ink); }
+.contact-form label { display: grid; gap: 9px; margin-bottom: 18px; }
+.contact-form label span { font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.contact-form input, .contact-form select { width: 100%; height: 52px; padding: 0 15px; border: 1px solid #d8d8d3; border-radius: 0; background: #f7f6f1; outline: none; }
+.contact-form input:focus, .contact-form select:focus { border-color: var(--ink); }
+.button-form { width: 100%; margin-top: 8px; background: var(--coral); }
+.contact-form small { display: block; margin-top: 14px; text-align: center; color: #777; font-size: 9px; }
+.contact-links { margin-top: 22px; padding-top: 19px; display: flex; align-items: center; justify-content: center; gap: 15px; border-top: 1px solid #dfdfda; font-size: 10px; }
+.contact-links > span { color: #81817b; }.contact-links a { font-weight: 900; border-bottom: 1px solid var(--ink); }
+
+footer { min-height: 130px; padding: 32px 5vw; display: flex; align-items: center; justify-content: space-between; gap: 30px; background: #090d0b; color: white; }
+.brand-light .brand-mark { background: var(--acid); color: var(--ink); }
+footer p { margin: 0; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.45); } footer > a { font-size: 12px; font-weight: 800; }
+.footer-links { display: flex; gap: 24px; font-size: 11px; font-weight: 800; color: rgba(255,255,255,.62); }.footer-links a:hover { color: white; }
+
+@media (max-width: 900px) {
+  nav { display: none; }
+  .conversion-hero { grid-template-columns: 1fr; }.conversion-copy { min-height: 700px; }.hero-side { grid-template-rows: 460px auto; }.hero-form { min-height: 0; padding-top: 60px; padding-bottom: 60px; }
+  .steps, .program-grid, .fit, .teacher, .guarantee, .diagnostic { grid-template-columns: 1fr; }
+  .teacher-photo { height: 720px; }.teacher-photo-wrap { width: min(85%, 560px); }
+  .steps article + article { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }
+  .promo { grid-template-columns: 1fr 1fr; }.promo-main { grid-column: 1/-1; }
+  .section-heading-row { align-items: start; flex-direction: column; }
+  .topic-flow { grid-template-columns: 1fr; }.topic-flow i { transform: rotate(90deg); text-align: center; }
+  .guarantee { gap: 45px; }.guarantee-number { font-size: 130px; }
+}
+
+@media (max-width: 600px) {
+  .topbar { height: 68px; }.button-small { display: none; }.brand { font-size: 14px; }
+  .conversion-hero { min-height: 0; }.conversion-copy { min-height: 0; padding: 64px 22px 45px; }.conversion-hero h1 { font-size: 48px; }.hero-side { grid-template-rows: 330px auto; }.hero-form { min-height: 0; padding: 48px 22px; }.hero-chemistry .score-card { width: 43%; }.hero-chemistry .sticker { right: 4%; }
+  h1 em { white-space: normal; }.hero-actions { align-items: stretch; flex-direction: column; }.hero-actions .button { width: 100%; }.text-link { align-self: flex-start; }
+  .hero-proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }.hero-proof b { font-size: 23px; }.hero-proof span { font-size: 9px; }
+  .truth-strip { flex-direction: column; padding: 19px 22px; }
+  .section { padding: 75px 22px; }.steps { margin-top: 45px; }.fit { padding-top: 0; }.fit-card { min-height: 0; padding: 50px 28px; }
+  .teacher { gap: 65px; }.teacher-photo-wrap { width: calc(100% - 18px); }.teacher-photo { height: 540px; }.teacher-photo-tag { right: -12px; }.teacher-about h2 { font-size: 41px; }.teacher-facts { grid-template-columns: 1fr; }.teacher-facts div { padding: 15px 0; border-bottom: 1px solid var(--line); }
+  .program-grid { margin-top: 45px; }.program-card { padding: 32px 24px; }
+  .promo { margin: 0; padding: 70px 22px; grid-template-columns: 1fr; gap: 34px; }.promo-main, .promo-detail { grid-column: auto; }.promo-detail { margin: 0; }.promo-times { grid-template-columns: repeat(3, 1fr); }.promo-prices { grid-template-columns: 1fr 1fr; }
+  .guarantee-number { font-size: 105px; }.section-heading h2, .diagnostic h2, .guarantee h2, .promo h2 { font-size: 39px; }
+  footer { align-items: flex-start; flex-direction: column; }.footer-links { flex-wrap: wrap; }
+}
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+</style>
+</head>
+<body><link rel="preload" as="image" href="/nastya-portrait.png"/><main><header class="topbar"><a class="brand" href="#top" aria-label="Химия с Настей — на главную"><span class="brand-mark">N</span><span>Химия с Настей</span></a><nav aria-label="Основная навигация"><a href="#diagnostic">Диагностика</a><a href="#approach">Подход</a><a href="#programs">Форматы</a></nav><a class="button button-small" href="#diagnostic">Записаться</a></header><section class="conversion-hero" id="top"><div class="conversion-copy"><p class="eyebrow light"><span></span> Не шаблонный курс — персональная стратегия</p><h1>Нахожу, где теряются баллы. Строю путь <em>в выбранный вуз.</em></h1><p class="hero-lead">Сначала — бесплатная диагностика. Затем — честный прогноз, понятный план и только те темы, которые нужны именно тебе для результата.</p><div class="hero-guarantee-note"><strong>50%</strong><span>стоимости курса верну при подтверждённых 100 баллах</span></div><ul class="conversion-benefits"><li>Можно начать с нуля</li><li>План под твою цель и сроки</li><li>Разбор каждой потери балла</li></ul><p class="hero-personal-note">Не знаешь свой уровень? Это нормально — определим его вместе и начнём с самого важного.</p><div class="hero-proof" aria-label="Ключевые результаты"><div><b>7 лет</b><span>опыта подготовки</span></div><div><b>70–90+</b><span>баллы учеников</span></div><div><b>100</b><span>результат на ЕГЭ</span></div></div></div><div class="hero-side"><div class="hero-chemistry" aria-hidden="true"><div class="orbit orbit-one"><i>Na</i><i>Cl</i><i>O₂</i></div><div class="orbit orbit-two"><i>H</i><i>Fe</i></div><div class="score-card"><span class="score-label">Твоя цель</span><strong>80<span>+</span></strong><span class="score-note">строим путь от текущего уровня</span></div><div class="formula formula-a">2H₂ + O₂ → 2H₂O</div><div class="formula formula-b">C₆H₁₂O₆</div><div class="sticker">логика<br/>вместо<br/>зубрёжки</div></div><div class="hero-form" id="diagnostic"><p class="form-kicker">Первый шаг — бесплатно</p><h2>Расскажи о цели — получи честный разбор.</h2><p class="form-intro">Три коротких вопроса. Настя ответит лично и подскажет, с чего лучше начать.</p><form class="contact-form"><label><span>Как тебя зовут?</span><input placeholder="Имя" required="" autoComplete="name" name="name"/></label><label><span>В каком ты классе?</span><select name="grade" required=""><option value="" disabled="" selected="">Выбрать класс</option><option>9 класс</option><option>10 класс</option><option>11 класс</option><option>Выпускник</option></select></label><label><span>Какая цель?</span><input placeholder="Например, ЕГЭ 80+" required="" name="goal"/></label><button class="button button-form" type="submit">Получить бесплатный разбор <span>→</span></button><small>Бесплатно · без обязательств · Настя ответит лично</small><div class="contact-links" aria-label="Другие способы связи"><span>Или написать через</span><a href="https://max.ru/join/e6gaVWf-j-u8W19NBUkJClh_LWcWMDKeocoxqj4qqVA" target="_blank" rel="noreferrer">MAX</a><a href="https://vk.me/join/DcFouBZvoYRJpgdaTxRIeHbwL7B8acR5wuI=" target="_blank" rel="noreferrer">ВКонтакте</a></div></form></div></div></section><section class="guarantee guarantee-top section"><div class="guarantee-number">50%</div><div><p class="eyebrow"><span></span> Уверенность в системе</p><h2>Наберёшь подтверждённые 100 баллов — верну половину стоимости курса.</h2><p>А для учеников, которые уже занимались ранее, сохраняется цена 1 500 ₽ на весь учебный год.</p><a class="guarantee-link" href="#diagnostic">Начать с бесплатной диагностики <span>→</span></a></div></section><section class="truth-strip"><p>Химия становится сложной не из-за «нет способностей».</p><p>Чаще всего мешают <span>конкретные пробелы</span>, которые можно найти и закрыть.</p></section><section class="approach section" id="approach"><div class="section-heading"><p class="eyebrow"><span></span> Честный подход</p><h2>Сначала — реальная точка А.<br/>Потом — маршрут к цели.</h2></div><div class="steps"><article><span class="step-number">01</span><div class="step-icon">⌁</div><h3>Диагностика</h3><p>Определяем не «знаешь или не знаешь», а где именно теряются баллы и почему.</p></article><article><span class="step-number">02</span><div class="step-icon">⎯</div><h3>Чёткий план</h3><p>Подбираем уровень, темп и формат под цель, сроки и текущую базу ученика.</p></article><article><span class="step-number">03</span><div class="step-icon">↗</div><h3>Работа на результат</h3><p>Практика, домашние задания, разбор каждой ошибки и регулярный контроль прогресса.</p></article></div></section><section class="fit section"><div class="fit-card fit-yes"><span class="fit-symbol">+</span><h2>Мы сработаемся, если ты</h2><ul><li>готов заниматься регулярно</li><li>выполняешь домашние задания</li><li>хочешь понимать, а не угадывать</li><li>готов идти к выбранному результату</li></ul></div><div class="fit-card fit-no"><span class="fit-symbol">−</span><h2>Я не подойду, если ты</h2><ul><li>ищешь обещание «100 баллов без усилий»</li><li>планируешь учиться от случая к случаю</li><li>не готов разбирать свои ошибки</li></ul><p>Честность на старте экономит время и помогает выбрать работающий путь.</p></div></section><section class="teacher section" id="teacher"><div class="teacher-photo-wrap"><img class="teacher-photo" src="/nastya-portrait.png" alt="Настя — репетитор по химии и биологии"/><span class="teacher-photo-tag">100 баллов · ЕГЭ · ОГЭ</span></div><div class="teacher-about"><p class="eyebrow"><span></span> Знакомство</p><h2>Я не даю ложных надежд. Я вижу, <em>где именно</em> теряются баллы.</h2><p class="teacher-intro">Меня зовут Настя. Уже 7 лет я помогаю ученикам разобраться в химии, закрыть пробелы и набрать результат, с которым они поступают именно в те вузы, которые планировали.</p><blockquote>«Моя задача — не просто пройти темы, а научить видеть логику задания и уверенно применять знания на экзамене».</blockquote><div class="teacher-facts"><div><strong>Химия</strong><span>ОГЭ и ЕГЭ</span></div><div><strong>Биология</strong><span>ЕГЭ онлайн</span></div><div><strong>70–90+</strong><span>результаты учеников</span></div></div></div></section><section class="programs section" id="programs"><div class="section-heading section-heading-row"><div><p class="eyebrow"><span></span> Два уровня подготовки</p><h2>Не один курс для всех.<br/>Программа — под твою цель.</h2></div><p>Все занятия проходят онлайн. Можно заниматься индивидуально, в паре или небольшой группе.</p></div><div class="program-grid" id="prices"><article class="program-card yellow"><div class="program-top"><span class="program-badge">CORE</span><span class="program-result">цель 60–80+</span></div><h3>Уверенная база</h3><p class="program-note">10–11 класс · средний уровень</p><ul><li>Полная программа ЕГЭ по темам</li><li>Регулярная практика и разбор ошибок</li><li>Пробники и контроль прогресса</li><li>Стратегия работы на экзамене</li></ul><div class="price-list"><div><span>Индивидуально</span><b>2 500 ₽</b></div><div><span>В паре</span><b>1 500 ₽</b></div><div><span>Мини-группа 3–4 человека</span><b>1 000 ₽</b></div></div><a href="#diagnostic">Выбрать CORE <span>→</span></a></article><article class="program-card red"><div class="program-top"><span class="program-badge">INTENSIVE</span><span class="program-result">цель 80–90+</span></div><h3>Высокий результат</h3><p class="program-note">11 класс · с нуля или с базой</p><ul><li>Ускоренное прохождение программы</li><li>2–3 занятия в неделю</li><li>Постоянная практика заданий ЕГЭ</li><li>Персональная работа над ошибками</li></ul><div class="price-list"><div><span>Индивидуально</span><b>3 000 ₽</b></div><div><span>В паре</span><b>2 000 ₽</b></div></div><a href="#diagnostic">Выбрать INTENSIVE <span>→</span></a></article></div></section><section class="promo section"><div class="promo-main"><p class="eyebrow light"><span></span> Старт 2026/2027</p><h2>Утро — выгодное<br/>время для занятий.</h2><p>Специальная стоимость индивидуальной подготовки в будни по московскому времени.</p></div><div class="promo-times"><span>10:00</span><span>11:00</span><span>12:00</span><span>13:00</span><span>14:00</span></div><div class="promo-prices"><div><span>ОГЭ</span><strong>500 ₽</strong><small>за занятие</small></div><div><span>ЕГЭ</span><strong>1 000 ₽</strong><small>за занятие</small></div></div><p class="promo-detail">Будни · рабочее время 10:00–22:00. Суббота и воскресенье — выходные; занятие в выходной возможно по тарифу ×1,5.</p></section><section class="exam-example section"><div class="section-heading section-heading-row"><div><p class="eyebrow"><span></span> Сложное — по полочкам</p><h2>Не заучивать текст.<br/>Видеть логику.</h2></div><p>Например, тема «чистые вещества и смеси» соединяет свойства веществ, способы разделения, безопасность и экологию. На занятии собираем это в понятную систему.</p></div><div class="topic-flow"><span>Состав смеси</span><i>→</i><span>Физические свойства</span><i>→</i><span>Способ разделения</span><i>→</i><span>Верный ответ</span></div></section><section class="diagnostic section" id="final-diagnostic"><div class="diagnostic-copy"><p class="eyebrow light"><span></span> Первый шаг — бесплатно</p><h2>Узнай свой реальный уровень и что мешает набрать нужные баллы.</h2><p>Короткая диагностика без обязательств. После неё я предложу подходящий формат и честно скажу, достижима ли цель в твои сроки.</p><div class="teacher-sign"><span class="avatar">N</span><div><b>Настя</b><span>репетитор по химии и биологии</span></div></div></div><form class="contact-form"><label><span>Как тебя зовут?</span><input placeholder="Имя" required="" autoComplete="name" name="name"/></label><label><span>В каком ты классе?</span><select name="grade" required=""><option value="" disabled="" selected="">Выбрать класс</option><option>9 класс</option><option>10 класс</option><option>11 класс</option><option>Выпускник</option></select></label><label><span>Какая цель?</span><input placeholder="Например, ЕГЭ 80+" required="" name="goal"/></label><button class="button button-form" type="submit">Получить бесплатный разбор <span>→</span></button><small>Бесплатно · без обязательств · Настя ответит лично</small><div class="contact-links" aria-label="Другие способы связи"><span>Или написать через</span><a href="https://max.ru/join/e6gaVWf-j-u8W19NBUkJClh_LWcWMDKeocoxqj4qqVA" target="_blank" rel="noreferrer">MAX</a><a href="https://vk.me/join/DcFouBZvoYRJpgdaTxRIeHbwL7B8acR5wuI=" target="_blank" rel="noreferrer">ВКонтакте</a></div></form></section><footer><a class="brand brand-light" href="#top"><span class="brand-mark">N</span><span>Химия с Настей</span></a><div class="footer-links"><a href="https://t.me/himichka_ANA" target="_blank" rel="noreferrer">Telegram</a><a href="https://max.ru/join/e6gaVWf-j-u8W19NBUkJClh_LWcWMDKeocoxqj4qqVA" target="_blank" rel="noreferrer">MAX</a><a href="https://vk.me/join/DcFouBZvoYRJpgdaTxRIeHbwL7B8acR5wuI=" target="_blank" rel="noreferrer">ВКонтакте</a></div><a href="#top">Наверх ↑</a></footer></main><script>
+    document.querySelectorAll('.contact-form').forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var data = new FormData(form);
+        var message = 'Здравствуйте! Хочу записаться на бесплатную диагностику. Имя: ' + data.get('name') + '. Класс: ' + data.get('grade') + '. Цель: ' + data.get('goal') + '.';
+        window.open('https://t.me/himichka_ANA?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
+        var note = form.querySelector('small');
+        if (note) note.textContent = 'Заявка открыта в Telegram.';
+      });
+    });
+  </script></body>
+</html>
