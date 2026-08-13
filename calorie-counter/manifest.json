@@ -1,0 +1,8 @@
+{
+  "name": "Счётчик калорий",
+  "short_name": "Калории",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f1ed",
+  "theme_color": "#9B7664"
+}
