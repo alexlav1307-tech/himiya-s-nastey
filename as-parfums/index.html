@@ -54,7 +54,7 @@
             <div><label for="quoteBrandInput">Бренд</label><input id="quoteBrandInput" placeholder="Amouage"></div>
             <div><label for="quoteNameInput">Название аромата</label><input id="quoteNameInput" placeholder="Guidance"></div>
             <div><label for="quoteVolumeInput">Объём, мл</label><input id="quoteVolumeInput" type="number" min="0" value="100"></div>
-            <div><label for="quotePriceInput">Цена аромата, ₽</label><input id="quotePriceInput" type="number" min="0" value="0"></div>
+            <div><label for="quotePriceInput">Закупочная цена, ₽</label><input id="quotePriceInput" type="number" min="0" value="0"></div>
             <div><label for="quoteDeliveryInput">Доставка клиенту, ₽</label><input id="quoteDeliveryInput" type="number" min="0" value="0"></div>
             <div><label for="quoteStoreInput">Цена в магазине, ₽</label><input id="quoteStoreInput" type="number" min="0" value="0"></div>
           </div>
@@ -64,7 +64,7 @@
         <div class="quote-preview" id="quotePreview">
           <div class="quote-brand">AS PARFUMS</div><div class="quote-kicker">персональное предложение</div>
           <div class="quote-name" id="quotePreviewName">Название аромата</div><div class="quote-volume" id="quotePreviewVolume">100 мл</div>
-          <div class="quote-lines"><div class="quote-line"><span>Цена в магазине</span><strong id="quotePreviewStore">—</strong></div><div class="quote-line"><span>Цена аромата</span><strong id="quotePreviewPrice">0 ₽</strong></div><div class="quote-line"><span>Доставка</span><strong id="quotePreviewDelivery">0 ₽</strong></div><div class="quote-line total"><span>Итого</span><strong id="quotePreviewTotal">0 ₽</strong></div><div class="quote-line"><span>Ваша выгода</span><strong id="quotePreviewSaving">0 ₽</strong></div></div>
+          <div class="quote-lines"><div class="quote-line"><span>Цена в магазине</span><strong id="quotePreviewStore">—</strong></div><div class="quote-line"><span>Закупочная цена</span><strong id="quotePreviewPrice">0 ₽</strong></div><div class="quote-line"><span>Доставка</span><strong id="quotePreviewDelivery">0 ₽</strong></div><div class="quote-line total"><span>Итого</span><strong id="quotePreviewTotal">0 ₽</strong></div><div class="quote-line"><span>Ваша выгода</span><strong id="quotePreviewSaving">0 ₽</strong></div></div>
           <div class="quote-note">Цена актуальна на момент расчёта и может немного измениться в зависимости от курса поставщика.</div>
         </div>
       </div>
@@ -143,7 +143,7 @@
   ['calcUsd','calcRate','calcDelivery','calcExpenses','calcVolume','calcRetail','calcMarkup','calcName'].forEach(id=>$(id).addEventListener('input',()=>setQuotePreset('bottle')));
   document.querySelectorAll('[data-quote-preset]').forEach(button=>button.addEventListener('click',()=>setQuotePreset(button.dataset.quotePreset)));
   ['quoteBrandInput','quoteNameInput','quoteVolumeInput','quotePriceInput','quoteDeliveryInput','quoteStoreInput'].forEach(id=>$(id).addEventListener('input',updateQuotePreview));
-  function quoteText(){const name=$('quoteNameInput').value.trim(),volume=decimal($('quoteVolumeInput').value),q=quoteComparison();return`AS PARFUMS\n\n${name}\nОбъём: ${volume} мл\nЦена в магазине: ${q.store?money(q.store):'не указана'}\nЦена аромата: ${money(q.price)}\nДоставка: ${q.delivery?money(q.delivery):'бесплатно'}\nИтого: ${money(q.total)}\nВаша выгода: ${q.saving?money(q.saving):'—'}\n\nЦена актуальна на момент расчёта и может немного измениться в зависимости от курса поставщика.`}
+  function quoteText(){const name=$('quoteNameInput').value.trim(),volume=decimal($('quoteVolumeInput').value),q=quoteComparison();return`AS PARFUMS\n\n${name}\nОбъём: ${volume} мл\nЦена в магазине: ${q.store?money(q.store):'не указана'}\nЗакупочная цена: ${money(q.price)}\nДоставка: ${q.delivery?money(q.delivery):'бесплатно'}\nИтого: ${money(q.total)}\nВаша выгода: ${q.saving?money(q.saving):'—'}\n\nЦена актуальна на момент расчёта и может немного измениться в зависимости от курса поставщика.`}
   $('copyQuote').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(quoteText());showNotice('quoteNotice','Текст скопирован')}catch(error){const area=document.createElement('textarea');area.value=quoteText();document.body.appendChild(area);area.select();document.execCommand('copy');area.remove();showNotice('quoteNotice','Текст скопирован')}});
   function wrapCanvasText(ctx,text,maxWidth){const words=String(text).split(/\s+/),lines=[];let line='';for(const word of words){const test=line?line+' '+word:word;if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=word}else line=test}if(line)lines.push(line);return lines}
   $('downloadQuote').addEventListener('click',()=>{
@@ -155,7 +155,7 @@
     ctx.fillStyle='#f5eee6';ctx.font='64px Georgia';const title=name||'Название аромата';const titleLines=wrapCanvasText(ctx,title,870).slice(0,3);titleLines.forEach((line,index)=>ctx.fillText(line,90,320+index*76));const titleBottom=320+(titleLines.length-1)*76;
     ctx.strokeStyle='rgba(244,232,219,.28)';ctx.lineWidth=2;ctx.strokeRect(90,titleBottom+48,190,60);ctx.fillStyle='#e5d8ca';ctx.font='25px Arial';ctx.fillText(decimal(volume)+' мл',120,titleBottom+87);
     const drawRow=(label,value,y,color='#f5eee6')=>{ctx.textAlign='left';ctx.fillStyle='#d7cabd';ctx.font='27px Arial';ctx.fillText(label,90,y);ctx.textAlign='right';ctx.fillStyle=color;ctx.fillText(value,990,y);ctx.textAlign='left';ctx.strokeStyle='rgba(244,232,219,.14)';ctx.beginPath();ctx.moveTo(90,y+30);ctx.lineTo(990,y+30);ctx.stroke()};
-    drawRow('Цена в магазине',q.store?money(q.store):'—',700);drawRow('Цена аромата',money(q.price),790);drawRow('Доставка',q.delivery?money(q.delivery):'Бесплатно',880);
+    drawRow('Цена в магазине',q.store?money(q.store):'—',700);drawRow('Закупочная цена',money(q.price),790);drawRow('Доставка',q.delivery?money(q.delivery):'Бесплатно',880);
     ctx.fillStyle='#f5eee6';ctx.font='34px Georgia';ctx.fillText('Итого',90,995);ctx.textAlign='right';ctx.fillStyle='#ead5bb';ctx.font='54px Georgia';ctx.fillText(money(q.total),990,995);ctx.textAlign='left';
     ctx.fillStyle='#d7cabd';ctx.font='28px Arial';ctx.fillText('Ваша выгода',90,1090);ctx.textAlign='right';ctx.fillStyle='#ead5bb';ctx.font='38px Georgia';ctx.fillText(q.saving?money(q.saving):'—',990,1090);ctx.textAlign='left';
     ctx.fillStyle='#a99b8d';ctx.font='20px Arial';const note='Цена актуальна на момент расчёта и может немного измениться в зависимости от курса поставщика.';wrapCanvasText(ctx,note,870).forEach((line,index)=>ctx.fillText(line,90,1225+index*28));
