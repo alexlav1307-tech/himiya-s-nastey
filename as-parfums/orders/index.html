@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AS Parfums · Заявка</title>
 <style>
-:root{--bg:#f2ebe5;--card:#fffaf6;--ink:#231c19;--muted:#7a6e68;--line:#ddcfc5;--accent:#6b2739;--soft:#eee3db}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at top,#f9f4ef 0,#f2ebe5 48%,#ede3da 100%);color:var(--ink);font-family:Arial,sans-serif}.wrap{width:min(720px,calc(100% - 28px));margin:auto;padding:34px 0 56px}.brand{text-align:center;letter-spacing:.28em;font-size:12px;margin-bottom:18px}.card{background:rgba(255,250,246,.96);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,5vw,44px);box-shadow:0 24px 65px rgba(50,30,20,.08)}h1{font:400 clamp(38px,8vw,58px) Georgia,serif;line-height:1;margin:0 0 14px;text-align:center}.lead{color:var(--muted);line-height:1.58;text-align:center;max-width:570px;margin:0 auto 30px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.full{grid-column:1/-1}label{display:block;font-size:11px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:7px;color:#5d514a}input,select,textarea{width:100%;border:1px solid var(--line);background:#fffdfa;border-radius:14px;padding:14px;font:inherit;color:var(--ink);outline:none}input:focus,select:focus,textarea:focus{border-color:#9b747e;box-shadow:0 0 0 3px rgba(107,39,57,.08)}textarea{min-height:92px;resize:vertical}.note{background:var(--soft);border-radius:14px;padding:14px 16px;color:#62564f;font-size:13px;line-height:1.5}.btn{width:100%;border:0;border-radius:15px;background:var(--accent);color:#fff;padding:16px;font-weight:700;font-size:15px;cursor:pointer}.btn:disabled{opacity:.65;cursor:wait}.msg{display:none;margin-top:15px;padding:14px 16px;border-radius:13px;font-size:14px;line-height:1.45}.ok{display:block;background:#e6eee4;color:#29462d}.err{display:block;background:#f4e2e2;color:#772e2e}.foot{text-align:center;color:#8c8078;font-size:12px;margin-top:18px}.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}@media(max-width:590px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.wrap{padding-top:20px}.card{border-radius:22px}}
+:root{--card:#fffaf6;--ink:#231c19;--muted:#7a6e68;--line:#ddcfc5;--accent:#6b2739}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at top,#f9f4ef 0,#f2ebe5 48%,#ede3da 100%);color:var(--ink);font-family:Arial,sans-serif}.wrap{width:min(620px,calc(100% - 28px));margin:auto;padding:42px 0 56px}.brand{text-align:center;letter-spacing:.28em;font-size:12px;margin-bottom:18px}.card{background:rgba(255,250,246,.97);border:1px solid var(--line);border-radius:28px;padding:clamp(26px,6vw,46px);box-shadow:0 24px 65px rgba(50,30,20,.08)}h1{font:400 clamp(38px,8vw,58px) Georgia,serif;line-height:1;margin:0 0 14px;text-align:center}.lead{color:var(--muted);line-height:1.58;text-align:center;max-width:500px;margin:0 auto 30px}label{display:block;font-size:11px;letter-spacing:.07em;text-transform:uppercase;margin:0 0 7px;color:#5d514a}.field{margin-bottom:16px}input{width:100%;border:1px solid var(--line);background:#fffdfa;border-radius:14px;padding:15px;font:inherit;color:var(--ink);outline:none}input:focus{border-color:#9b747e;box-shadow:0 0 0 3px rgba(107,39,57,.08)}.btn{width:100%;border:0;border-radius:15px;background:var(--accent);color:#fff;padding:16px;font-weight:700;font-size:15px;cursor:pointer;margin-top:4px}.btn:disabled{opacity:.65;cursor:wait}.msg{display:none;margin-top:15px;padding:14px 16px;border-radius:13px;font-size:14px;line-height:1.45}.ok{display:block;background:#e6eee4;color:#29462d}.err{display:block;background:#f4e2e2;color:#772e2e}.foot{text-align:center;color:#8c8078;font-size:12px;margin-top:18px}.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
 </style>
 </head>
 <body>
@@ -14,20 +14,13 @@
 <div class="brand">AS PARFUMS</div>
 <section class="card">
 <h1>Оставить заявку</h1>
-<p class="lead">Нашли аромат, который хотите заказать? Оставьте название или ссылку. Я проверю наличие и актуальную стоимость у поставщика и свяжусь с вами.</p>
+<p class="lead">Если хотите что-то заказать, просто оставьте своё имя и ссылку на аромат. Я сама посмотрю, какие варианты есть у поставщика, и напишу вам лично.</p>
 <form id="f">
-<div class="grid">
-<div><label>Ваше имя *</label><input name="customer_name" required maxlength="80"></div>
-<div><label>Telegram / телефон *</label><input name="contact" required maxlength="120" placeholder="@username"></div>
-<div class="full"><label>Название аромата *</label><input name="perfume_name" required maxlength="180" placeholder="Бренд и название"></div>
-<div class="full"><label>Ссылка на аромат</label><input name="perfume_url" maxlength="1000" placeholder="https://..."></div>
-<div><label>Объём</label><input name="volume" maxlength="40" placeholder="50 мл"></div>
-<div><label>Формат</label><select name="order_type"><option value="full">Полноразмерный флакон</option><option value="tester">Тестер</option><option value="unsure">Пока не знаю</option></select></div>
-<div class="full"><div class="note">Полноразмерные флаконы можно заказывать в любое время. Тестеры добавляем в заказ, когда собирается небольшая общая корзина.</div></div>
-<div class="full"><label>Комментарий</label><textarea name="comment" maxlength="1000" placeholder="Объём, бюджет или другие детали"></textarea></div>
+<div class="field"><label>Имя *</label><input name="customer_name" required maxlength="80" placeholder="Например, Катя"></div>
+<div class="field"><label>Ссылка на аромат *</label><input name="perfume_url" required maxlength="1000" placeholder="https://..."></div>
 <input class="hp" name="website" tabindex="-1" autocomplete="off">
-<div class="full"><button class="btn" id="b" type="submit">Отправить заявку</button><div id="m" class="msg"></div></div>
-</div>
+<button class="btn" id="b" type="submit">Отправить заявку</button>
+<div id="m" class="msg"></div>
 </form>
 </section>
 <div class="foot">private perfume club · AS Parfums</div>
@@ -35,7 +28,7 @@
 <script>
 const endpoint='https://hjjahzdjcvtwhlochpha.supabase.co/functions/v1/as-parfums-orders';
 const f=document.getElementById('f'),b=document.getElementById('b'),m=document.getElementById('m');
-f.addEventListener('submit',async e=>{e.preventDefault();b.disabled=true;b.textContent='Отправляю…';m.className='msg';const data=Object.fromEntries(new FormData(f).entries());try{const r=await fetch(endpoint,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(data)});const j=await r.json();if(!r.ok)throw new Error(j.error||'error');m.className='msg ok';m.textContent='Заявка сохранена 🤍 Я проверю наличие и актуальную стоимость и свяжусь с вами.';f.reset()}catch(e){m.className='msg err';m.textContent='Не получилось отправить заявку. Попробуйте ещё раз чуть позже.'}finally{b.disabled=false;b.textContent='Отправить заявку'}});
+f.addEventListener('submit',async e=>{e.preventDefault();b.disabled=true;b.textContent='Отправляю…';m.className='msg';const data=Object.fromEntries(new FormData(f).entries());try{const r=await fetch(endpoint,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(data)});const j=await r.json();if(!r.ok)throw new Error(j.error||'error');m.className='msg ok';m.textContent='Готово 🤍 Я посмотрю наличие и напишу вам лично.';f.reset()}catch(e){m.className='msg err';m.textContent='Не получилось отправить заявку. Попробуйте ещё раз чуть позже.'}finally{b.disabled=false;b.textContent='Отправить заявку'}});
 </script>
 </body>
 </html>
