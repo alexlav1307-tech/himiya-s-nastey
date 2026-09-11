@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#211d1a">
+  <title>Узнать стоимость аромата — AS Parfums</title>
+  <meta name="description" content="Оставьте название или ссылку на аромат — AS Parfums проверит наличие и рассчитает актуальную стоимость.">
+  <style>
+    :root{--dark:#211d1a;--paper:#fffdf9;--ink:#1d1916;--muted:#746b63;--line:#ddd2c7;--gold:#a48867;--ok:#42604b;--danger:#9c4545}
+    *{box-sizing:border-box}html{font-size:16px}body{margin:0;min-height:100vh;background:linear-gradient(145deg,#1d1916,#332a24);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;padding:clamp(18px,5vw,58px)}
+    .shell{width:min(1080px,100%);margin:auto;display:grid;grid-template-columns:minmax(260px,.8fr) minmax(320px,1.2fr);background:var(--paper);border-radius:30px;overflow:hidden;box-shadow:0 32px 90px rgba(0,0,0,.28)}
+    .intro{background:#29231f;color:#f6eee6;padding:clamp(32px,6vw,72px);display:flex;flex-direction:column;justify-content:space-between;min-height:650px;position:relative;overflow:hidden}.intro:after{content:"";position:absolute;width:380px;height:380px;border:1px solid rgba(216,188,153,.18);border-radius:50%;right:-230px;bottom:-120px}.brand{font:clamp(1.45rem,3vw,2rem) Georgia,serif;letter-spacing:.13em}.eyebrow{margin-top:8px;color:#b9aa9d;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase}.intro h1{font:clamp(2.2rem,5vw,4.6rem)/.98 Georgia,serif;font-weight:400;margin:70px 0 24px}.intro p{color:#cfc3b7;line-height:1.65;max-width:430px;margin:0}.steps{display:grid;gap:13px;margin-top:42px}.step{display:flex;gap:12px;align-items:flex-start;color:#e6dbd0}.step span{display:grid;place-items:center;flex:0 0 28px;height:28px;border:1px solid rgba(255,255,255,.2);border-radius:50%;font-size:.75rem;color:#d8b993}
+    .form-side{padding:clamp(30px,6vw,70px);display:flex;align-items:center}.form-card{width:100%}.form-card h2{font:clamp(1.7rem,3vw,2.5rem) Georgia,serif;font-weight:400;margin:0 0 10px}.lead{color:var(--muted);line-height:1.55;margin:0 0 30px}.field{margin-bottom:18px}label{display:block;font-size:.9rem;margin-bottom:7px;color:#514943}input,textarea{width:100%;border:1px solid var(--line);border-radius:12px;background:#fff;padding:13px 14px;color:var(--ink);font:inherit;min-height:48px}textarea{min-height:100px;resize:vertical}input:focus,textarea:focus{outline:3px solid rgba(164,136,103,.18);border-color:var(--gold)}.hint{font-size:.78rem;color:var(--muted);margin-top:6px}.check{display:flex;gap:10px;align-items:flex-start;margin:22px 0;color:var(--muted);font-size:.86rem;line-height:1.45}.check input{width:18px;height:18px;min-height:0;margin:1px 0 0}.submit{width:100%;min-height:52px;border:0;border-radius:12px;background:var(--dark);color:#fff;font:inherit;font-weight:600;cursor:pointer}.submit:hover{background:#3a302a}.submit:disabled{opacity:.6;cursor:wait}.message{display:none;margin-top:16px;padding:13px 14px;border-radius:11px;font-size:.9rem}.message.show{display:block}.message.ok{background:#e6efe8;color:var(--ok)}.message.error{background:#f4e4e4;color:var(--danger)}.success{display:none;text-align:center;padding:30px 0}.success.show{display:block}.success-mark{width:64px;height:64px;margin:0 auto 20px;border-radius:50%;display:grid;place-items:center;background:#e6efe8;color:var(--ok);font-size:1.8rem}.success h2{font:2.2rem Georgia,serif;font-weight:400;margin:0 0 12px}.success p{color:var(--muted);line-height:1.6}.again{border:1px solid var(--line);background:transparent;color:var(--ink);padding:11px 15px;border-radius:10px;font:inherit;cursor:pointer;margin-top:12px}.trap{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+    @media(max-width:780px){body{padding:0;background:var(--paper)}.shell{display:block;border-radius:0;box-shadow:none}.intro{min-height:auto;padding:28px 22px 34px}.intro h1{margin:48px 0 18px}.steps{margin-top:28px}.form-side{padding:34px 22px 46px}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="intro">
+      <div><div class="brand">AS PARFUMS</div><div class="eyebrow">персональный поиск парфюмерии</div><h1>Узнать стоимость аромата</h1><p>Оставьте название или ссылку. Я проверю предложения поставщиков, наличие и вернусь к вам с актуальной стоимостью.</p></div>
+      <div class="steps"><div class="step"><span>1</span><div>Вы отправляете аромат</div></div><div class="step"><span>2</span><div>Я сравниваю доступные предложения</div></div><div class="step"><span>3</span><div>Вы получаете цену и решаете, заказывать ли</div></div></div>
+    </section>
+    <section class="form-side">
+      <div class="form-card">
+        <form id="requestForm">
+          <h2>Оставить запрос</h2><p class="lead">Покупать сразу ничего не нужно. Сначала я уточню цену и наличие.</p>
+          <div class="field"><label for="clientName">Ваше имя *</label><input id="clientName" name="client_name" autocomplete="name" required maxlength="80" placeholder="Например, Катя"></div>
+          <div class="field"><label for="contact">Куда вам ответить *</label><input id="contact" name="contact" required maxlength="160" placeholder="@username в Telegram или телефон"><div class="hint">Укажите удобный контакт для ответа.</div></div>
+          <div class="field"><label for="fragrance">Название аромата</label><input id="fragrance" name="fragrance" maxlength="240" placeholder="Например, Guerlain Mon Guerlain Intense"></div>
+          <div class="field"><label for="fragranceUrl">Ссылка на аромат</label><input id="fragranceUrl" name="fragrance_url" type="url" maxlength="1200" placeholder="https://..."><div class="hint">Заполните название или вставьте ссылку.</div></div>
+          <div class="field"><label for="note">Комментарий</label><textarea id="note" name="note" maxlength="1000" placeholder="Желаемый объём или другие пожелания"></textarea></div>
+          <div class="trap" aria-hidden="true"><label for="company">Компания</label><input id="company" tabindex="-1" autocomplete="off"></div>
+          <label class="check"><input id="consent" type="checkbox" required><span>Согласен(на), чтобы со мной связались по этой заявке.</span></label>
+          <button class="submit" type="submit">Отправить запрос</button><div class="message" id="formMessage" role="status"></div>
+        </form>
+        <div class="success" id="success"><div class="success-mark">✓</div><h2>Запрос отправлен</h2><p>Я проверю актуальную стоимость и свяжусь с вами по указанному контакту.</p><button class="again" id="sendAgain" type="button">Отправить ещё один аромат</button></div>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
+  <script>
+    (()=>{
+      'use strict';
+      const cloud=window.supabase.createClient('https://hjjahzdjcvtwhlochpha.supabase.co','sb_publishable_G_25Zs6vvHGwjXw42Ybl-g_1o642Ugd');
+      const form=document.getElementById('requestForm'),message=document.getElementById('formMessage'),success=document.getElementById('success');
+      const showMessage=(text,type)=>{message.textContent=text;message.className='message show '+type};
+      form.addEventListener('submit',async event=>{
+        event.preventDefault();
+        if(document.getElementById('company').value)return;
+        const fragrance=document.getElementById('fragrance').value.trim(),url=document.getElementById('fragranceUrl').value.trim();
+        if(!fragrance&&!url){showMessage('Укажите название аромата или вставьте ссылку.','error');return}
+        const button=form.querySelector('button[type="submit"]');button.disabled=true;button.textContent='Отправляю…';message.className='message';
+        const payload={client_name:document.getElementById('clientName').value.trim(),contact:document.getElementById('contact').value.trim(),fragrance:fragrance||'Аромат по ссылке',fragrance_url:url||null,note:document.getElementById('note').value.trim()||null,status:'Новая',source:'client'};
+        const {error}=await cloud.from('as_parfums_requests').insert(payload);
+        button.disabled=false;button.textContent='Отправить запрос';
+        if(error){showMessage('Не получилось отправить запрос. Попробуйте ещё раз чуть позже.','error');return}
+        form.reset();form.style.display='none';success.classList.add('show');
+      });
+      document.getElementById('sendAgain').addEventListener('click',()=>{success.classList.remove('show');form.style.display='block';message.className='message';document.getElementById('clientName').focus()});
+    })();
+  </script>
+</body>
+</html>
