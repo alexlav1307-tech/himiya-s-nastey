@@ -24,7 +24,7 @@
   <aside>
     <div class="logo">AS PARFUMS</div><div class="sub">private perfume club</div>
     <nav class="nav" id="nav">
-      <button type="button" class="active" data-page="home">Обзор</button><button type="button" data-page="requests">Запросы клиентов</button><button type="button" data-page="orders">Заказы</button><button type="button" data-page="decants">Распивы</button><button type="button" data-page="catalog">Ароматы</button><button type="button" data-page="suppliers">Поставщики</button><button type="button" data-page="calculator">Калькулятор</button><button type="button" data-page="clientCard">Карточка клиенту</button><button type="button" data-page="settings">Настройки</button>
+      <button type="button" class="active" data-page="home">Обзор</button><button type="button" data-page="requests">Корзина заказов</button><button type="button" data-page="orders">Заказы</button><button type="button" data-page="decants">Распивы</button><button type="button" data-page="catalog">Ароматы</button><button type="button" data-page="suppliers">Поставщики</button><button type="button" data-page="calculator">Калькулятор</button><button type="button" data-page="clientCard">Карточка клиенту</button><button type="button" data-page="settings">Настройки</button>
     </nav>
   </aside>
   <main>
@@ -37,7 +37,7 @@
 
     <section class="section" id="requests">
       <div class="card request-login" id="requestLoginCard">
-        <h2>Вход в запросы</h2>
+        <h2>Вход в корзину заказов</h2>
         <p class="muted">Мы отправим на почту безопасную ссылку для входа. Пароль не нужен.</p>
         <form id="requestLoginForm">
           <label for="requestLoginEmail">Email владельца</label>
@@ -50,25 +50,23 @@
       <div id="requestWorkspace" hidden>
         <div class="card">
           <div class="toolbar">
-            <div><h2>Запросы клиентов</h2><div class="cloud-state"><span class="cloud-dot on"></span>Сохраняются в облаке</div></div>
-            <div class="actions"><a class="btn secondary" href="request/" target="_blank" rel="noopener">Открыть форму клиента</a><button class="btn secondary" type="button" id="refreshRequests">Обновить</button><button class="btn" type="button" id="showRequestForm">+ Добавить запрос</button></div>
+            <div><h2>Корзина заказов</h2><div class="cloud-state"><span class="cloud-dot on"></span>Сохраняется в облаке</div></div>
+            <div class="actions"><a class="btn secondary" href="request/" target="_blank" rel="noopener">Открыть форму заказа</a><button class="btn secondary" type="button" id="refreshRequests">Обновить</button><button class="btn" type="button" id="showRequestForm">+ Добавить позицию</button></div>
           </div>
           <div class="notice" id="requestNotice"></div>
           <form class="form-panel" id="requestForm" hidden>
             <div class="form">
-              <div><label for="requestClient">Имя</label><input id="requestClient" required maxlength="80"></div>
-              <div><label for="requestContact">Контакт для ответа</label><input id="requestContact" required maxlength="160" placeholder="@username или телефон"></div>
-              <div><label for="requestFragrance">Аромат</label><input id="requestFragrance" required maxlength="240" placeholder="Бренд и название"></div>
-              <div><label for="requestUrl">Ссылка на аромат</label><input id="requestUrl" type="url" maxlength="1200" placeholder="https://..."></div>
-              <div><label for="requestNote">Комментарий</label><input id="requestNote" maxlength="1000" placeholder="Объём, концентрация или пожелания"></div>
+              <div><label for="requestClient">Имя клиента</label><input id="requestClient" required maxlength="80"></div>
+              <div><label for="requestUrl">Ссылка на аромат</label><input id="requestUrl" type="url" required maxlength="1200" placeholder="https://..."></div>
+              <div><label for="requestVolume">Объём, мл</label><input id="requestVolume" type="number" inputmode="numeric" required min="1" max="1000" step="1" placeholder="50"></div>
             </div>
-            <div class="actions"><button class="btn" type="submit">Сохранить запрос</button><button class="btn secondary" type="button" data-cancel="requestForm">Отмена</button></div>
+            <div class="actions"><button class="btn" type="submit">Добавить в корзину</button><button class="btn secondary" type="button" data-cancel="requestForm">Отмена</button></div>
           </form>
           <div class="form" style="grid-template-columns:minmax(220px,1fr) minmax(180px,.4fr);margin-bottom:12px">
-            <div><label for="requestSearch">Поиск</label><input id="requestSearch" type="search" placeholder="Имя или аромат"></div>
+            <div><label for="requestSearch">Поиск</label><input id="requestSearch" type="search" placeholder="Имя, ссылка или объём"></div>
             <div><label for="requestFilter">Статус</label><select id="requestFilter"><option value="">Все статусы</option><option>Новая</option><option>Ищу цену</option><option>Ответила</option><option>Заказ подтверждён</option><option>Закрыта</option></select></div>
           </div>
-          <div class="table-wrap"><table><thead><tr><th>Дата</th><th>Клиент</th><th>Аромат / ссылка</th><th>Контакт</th><th>Источник</th><th>Статус</th></tr></thead><tbody id="requestsBody"><tr><td colspan="6" class="empty">Войдите, чтобы увидеть запросы.</td></tr></tbody></table></div>
+          <div class="table-wrap"><table><thead><tr><th>Дата</th><th>Клиент</th><th>Ссылка на аромат</th><th>Объём</th><th>Источник</th><th>Статус</th></tr></thead><tbody id="requestsBody"><tr><td colspan="6" class="empty">Войдите, чтобы увидеть корзину.</td></tr></tbody></table></div>
         </div>
       </div>
     </section>
@@ -156,12 +154,12 @@
   function requestSource(value){return value==='manual'?'Добавила я':'Форма клиента'}
   function renderRequests(){
     const term=$('requestSearch').value.trim().toLowerCase(),status=$('requestFilter').value;
-    const rows=cloudRequests.filter(item=>(!status||item.status===status)&&(!term||[item.client_name,item.contact,item.fragrance].some(value=>String(value||'').toLowerCase().includes(term))));
-    $('requestsBody').innerHTML=rows.length?rows.map(item=>{const url=safeUrl(item.fragrance_url);return`<tr><td>${requestDate(item.created_at)}</td><td><strong>${escapeHtml(item.client_name)}</strong>${item.note?`<div class="muted">${escapeHtml(item.note)}</div>`:''}</td><td>${escapeHtml(item.fragrance)}${url?`<div><a class="request-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">Открыть ссылку</a></div>`:''}</td><td>${escapeHtml(item.contact)}</td><td><span class="tag ${item.source==='manual'?'source-manual':'source-client'}">${requestSource(item.source)}</span></td><td><select class="status-select" data-request-status="${item.id}">${REQUEST_STATUSES.map(value=>`<option${value===item.status?' selected':''}>${value}</option>`).join('')}</select></td></tr>`}).join(''):'<tr><td colspan="6" class="empty">Запросов с такими условиями нет.</td></tr>';
+    const rows=cloudRequests.filter(item=>(!status||item.status===status)&&(!term||[item.client_name,item.fragrance_url,item.note].some(value=>String(value||'').toLowerCase().includes(term))));
+    $('requestsBody').innerHTML=rows.length?rows.map(item=>{const url=safeUrl(item.fragrance_url);return`<tr><td>${requestDate(item.created_at)}</td><td><strong>${escapeHtml(item.client_name)}</strong></td><td>${url?`<a class="request-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">Открыть аромат</a>`:escapeHtml(item.fragrance)}</td><td>${escapeHtml(item.note||'—')}</td><td><span class="tag ${item.source==='manual'?'source-manual':'source-client'}">${requestSource(item.source)}</span></td><td><select class="status-select" data-request-status="${item.id}">${REQUEST_STATUSES.map(value=>`<option${value===item.status?' selected':''}>${value}</option>`).join('')}</select></td></tr>`}).join(''):'<tr><td colspan="6" class="empty">В корзине нет позиций с такими условиями.</td></tr>';
     document.querySelectorAll('[data-request-status]').forEach(select=>select.addEventListener('change',()=>updateRequestStatus(select.dataset.requestStatus,select.value)));
   }
   async function loadRequests(){
-    $('requestsBody').innerHTML='<tr><td colspan="6" class="empty">Загружаю запросы…</td></tr>';
+    $('requestsBody').innerHTML='<tr><td colspan="6" class="empty">Загружаю корзину…</td></tr>';
     const {data:rows,error}=await cloud.from('as_parfums_requests').select('id,client_name,contact,fragrance,fragrance_url,note,status,source,created_at').order('created_at',{ascending:false});
     if(error){$('requestsBody').innerHTML='<tr><td colspan="6" class="empty">Не удалось загрузить запросы. Попробуй войти ещё раз.</td></tr>';return}
     cloudRequests=rows||[];renderRequests();
@@ -181,9 +179,9 @@
   });
   $('requestForm').addEventListener('submit',async event=>{
     event.preventDefault();const button=event.submitter;button.disabled=true;
-    const payload={client_name:$('requestClient').value.trim(),contact:$('requestContact').value.trim(),fragrance:$('requestFragrance').value.trim(),fragrance_url:$('requestUrl').value.trim()||null,note:$('requestNote').value.trim()||null,status:'Новая',source:'manual'};
+    const payload={client_name:$('requestClient').value.trim(),contact:'Не указан',fragrance:'Заказ по ссылке',fragrance_url:$('requestUrl').value.trim(),note:$('requestVolume').value.trim()+' мл',status:'Новая',source:'manual'};
     const {error}=await cloud.from('as_parfums_requests').insert(payload);button.disabled=false;
-    if(error){showNotice('requestNotice','Не удалось сохранить запрос');return}closeForm('requestForm');showNotice('requestNotice','Запрос сохранён');await loadRequests();
+    if(error){showNotice('requestNotice','Не удалось добавить позицию');return}closeForm('requestForm');showNotice('requestNotice','Позиция добавлена в корзину');await loadRequests();
   });
   $('refreshRequests').addEventListener('click',loadRequests);$('requestSearch').addEventListener('input',renderRequests);$('requestFilter').addEventListener('change',renderRequests);
   cloud.auth.getSession().then(({data:{session}})=>setRequestSession(session));cloud.auth.onAuthStateChange((_event,session)=>setRequestSession(session));
